@@ -42,7 +42,7 @@ gitdb @ file:///home/conda/feedstock_root/build_artifacts/gitdb_1735887193964/wo
 GitPython @ file:///home/conda/feedstock_root/build_artifacts/gitpython_1735929639977/work
 gmpy2 @ file:///Users/runner/miniforge3/conda-bld/gmpy2_1733462585687/work
 google-auth==2.38.0
-google-genai==1.3.0
+google-genai== 0.8.4
 gradio==5.1.0
 gradio_client==1.4.0
 h11 @ file:///home/conda/feedstock_root/build_artifacts/h11_1733327467879/work

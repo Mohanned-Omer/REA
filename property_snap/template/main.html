@@ -389,7 +389,7 @@
         <div class="sidebar">
             <ul class="sidebar-menu">
                 <li><a href="{% url 'main' %}">Generate Description</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
             </ul>
         </div>
 
@@ -397,6 +397,9 @@
             <div class="left-panel">
                 <div class="input-section">
                     <h3>Enter Property Link</h3>
+                    <p style="font-size: 12px; color: #888; text-align: center; margin-bottom: 10px;">
+                        Only domain.com.au rental properties work, e.g. <a href="https://www.domain.com.au/3-22-rockwall-cresent-potts-point-nsw-2011-17460670?topspot=1" style="color: #8A7BFF; text-decoration: underline;">https://www.domain.com.au/3-22-rockwall-cresent-potts-point-nsw-2011-17460670?topspot=1</a>
+                    </p>
                     <form id="linkForm">
                         <input type="url" id="linkInput" placeholder="Enter a valid URL" required />
                         <button type="submit" id="submitButton">Submit</button>

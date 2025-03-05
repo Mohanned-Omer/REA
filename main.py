@@ -1,5 +1,6 @@
-from google import genai
+from google import genai 
 from google.genai import types
+
 import requests
 import pathlib
 from PIL import Image
@@ -38,8 +39,8 @@ def convert_image_to_part(image_url):
     )
     
 def generate_property_description(property_url, n=5):
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
+    
+    client = genai.Client(api_key=os.environ['GEMINI_API_KEY'])
     # Scrape image URLs
     image_urls = list(scrape_images(property_url, n=n))
 
