@@ -94,7 +94,7 @@ ROOT_URLCONF = "REA.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["/Users/mohanned/Desktop/University/MDN/REA/property_snap/template"],
+        "DIRS": [os.path.join(BASE_DIR, 'property_snap', 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
