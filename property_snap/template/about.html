@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us - Property Snap</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1E1E1E;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        /* Banner styling */
+        .banner {
+            background-color: #2A2A2A;
+            margin: 20px 20px 0 20px;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .banner-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mdn-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+
+        .banner h1 {
+            color: #8A7BFF;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            flex: 1;
+            margin: 20px 20px 40px 20px;
+            gap: 30px;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #2A2A2A;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+            margin-right: 0;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #8A7BFF;
+        }
+
+        /* About content styling */
+        .about-content {
+            flex: 1;
+            background-color: #2A2A2A;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content h2 {
+            color: #8A7BFF;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-content h3 {
+            color: #A8A0FF;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+        }
+
+        .about-content p {
+            color: #CCC;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-content ul, .about-content ol {
+            list-style-type: none;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .about-content li {
+            color: #CCC;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .about-content li:before {
+            content: "•";
+            color: #8A7BFF;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-content ol li {
+            counter-increment: item;
+            padding-left: 25px;
+        }
+
+        .about-content ol li:before {
+            content: counter(item) ".";
+            color: #8A7BFF;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-content a {
+            color: #8A7BFF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .about-content a:hover {
+            color: #A8A0FF;
+            text-decoration: underline;
+        }
+
+        .about-content strong {
+            color: #A8A0FF;
+            font-weight: bold;
+        }
+
+        .research-section {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #8A7BFF;
+        }
+
+        .research-section p {
+            margin: 0;
+            color: #A8A0FF;
+            font-style: italic;
+        }
+
+        .mission-statement {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #8A7BFF;
+        }
+
+        .mission-statement p {
+            color: #A8A0FF;
+            font-style: italic;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="banner-content">
+            <img src="{% static 'property_snap/images/mdn_logo.png' %}" alt="MDN Logo" class="mdn-logo">
+            <h1>Property Snap</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'main' %}">Generate Description</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="about-content">
+            <h2>Vision-Language Models for Automated Real Estate Descriptions</h2>
+            
+            <h3>Overview</h3>
+            <p>The goal of this project is to enhance the automation of real estate property descriptions using Vision-Language Models (VLMs). The core idea is to develop an AI system that analyzes property photos and generates fluent, detailed listing descriptions. This approach aims to save agents time while ensuring consistency.</p>
+
+            <div class="research-section">
+                <p>For reference, similar work has been explored in research papers such as:</p>
+                <p><a href="https://arxiv.org/abs/2201.12086" target="_blank">Automated Captioning with Vision-Language Models</a></p>
+            </div>
+
+            <h3>Goals</h3>
+            <ul>
+                <li>Improve the accuracy of real estate property descriptions generated by AI.</li>
+                <li>Adapt vision-language models to incorporate domain-specific vocabulary.</li>
+                <li>Utilize structured property data (e.g., number of bedrooms, amenities) to enhance descriptions.</li>
+                <li>Explore prompt engineering and fine-tuning to refine AI-generated outputs.</li>
+            </ul>
+
+            <h3>Research and Approach</h3>
+
+            <h4>Transformer-Based Vision-Language Models</h4>
+            <p>Recent advancements in VLMs, such as BLIP and OFA, have demonstrated state-of-the-art performance in general image captioning tasks. These models, when fine-tuned with real estate-specific data, can learn to use relevant vocabulary (e.g., "vaulted ceilings," "granite countertops").</p>
+
+            <p>By combining fine-tuning with prompt engineering, the model could generate more accurate descriptions and even ask clarifying questions, such as:</p>
+            <ul>
+                <li>Does the swimming pool in the image have heating?</li>
+                <li>What is the size and depth of the pool?</li>
+                <li>Is there a jet pump? Has the pool pump been maintained?</li>
+            </ul>
+
+            <p>While prompt engineering can enhance model responses, integrating structured metadata (e.g., location, number of bedrooms, amenities) could further improve performance.</p>
+
+            <div class="research-section">
+                <p>A relevant study on automated product descriptions suggests that fine-tuning significantly increases model accuracy:</p>
+                <p><a href="https://cs231n.stanford.edu/2024/papers/automated-product-description-generation-for-e-comme" target="_blank">Automated Product Description Generation for E-commerce</a></p>
+            </div>
+
+            <h4>Potential Enhancements</h4>
+            <ul>
+                <li><strong>Agentic AI & External Data Sources:</strong> Integrating APIs (such as Google Maps) could improve contextual information in property descriptions.</li>
+                <li><strong>Structured Data Inputs:</strong> Using property metadata to generate questions that refine AI-generated descriptions.</li>
+                <li><strong>Generalization to Other Domains:</strong> This method could also apply to hotel listings, Airbnb descriptions, or automated inspection summaries.</li>
+            </ul>
+
+            <div class="research-section">
+                <p>A related research paper exploring transformer-based description generation:</p>
+                <p><a href="https://arxiv.org/abs/2103.08298" target="_blank">Transformer-Based Description Generation</a></p>
+            </div>
+
+            <h3>Milestones</h3>
+            <ol>
+                <li><strong>Data Collection & Preprocessing</strong>
+                    <ul>
+                        <li>Curate a dataset of property photos, descriptions, and metadata.</li>
+                        <li>Clean and structure data for model training.</li>
+                    </ul>
+                </li>
+                <li><strong>Model Selection & Fine-Tuning</strong>
+                    <ul>
+                        <li>Choose a pre-trained vision-language model (e.g., BLIP, OFA).</li>
+                        <li>Fine-tune the model with real estate-specific vocabulary and structured data.</li>
+                    </ul>
+                </li>
+                <li><strong>Prompt Engineering & Evaluation</strong>
+                    <ul>
+                        <li>Develop and test prompts to enhance AI-generated descriptions.</li>
+                        <li>Evaluate model accuracy and fluency against human-generated descriptions.</li>
+                    </ul>
+                </li>
+                <li><strong>Integration & Deployment</strong>
+                    <ul>
+                        <li>Implement a prototype for real estate agents.</li>
+                        <li>Test usability and gather feedback for further refinement.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>Fine-tuning a vision-language model with curated real estate data (photos, descriptions, and property metadata) is key to improving accuracy. This approach not only benefits real estate listings but could also extend to other domains such as hotel descriptions and automated inspection reports.</p>
+
+            <div class="research-section">
+                <p>For additional context, the following research paper is relevant to this project:</p>
+                <p><a href="https://arxiv.org/abs/2201.12086" target="_blank">Vision-Language Models for Real Estate Descriptions</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 
