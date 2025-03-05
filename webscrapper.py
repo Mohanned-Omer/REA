@@ -12,22 +12,31 @@ import re
 
 def setup_driver():
     options = webdriver.ChromeOptions()
-    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-
-    # Browser options for better performance and compatibility
-    options.add_argument("--headless")  
+    
+    # Add arguments for headless operation and security
+    options.add_argument("--headless=new")  # Updated headless mode syntax
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-setuid-sandbox")
+    options.add_argument("--window-size=1920,1080")
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-    options.add_argument("accept-language=en-US,en;q=0.9")
-    options.add_argument("accept-encoding=gzip, deflate, br")
-    options.add_argument("connection=keep-alive")
-    options.add_argument("upgrade-insecure-requests=1")
-
-    service =  webdriver.ChromeService(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
+    
+    try:
+        # Try to use ChromeDriverManager to handle driver installation
+        service = webdriver.ChromeService(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=options)
+        return driver
+    except Exception as e:
+        print(f"Error setting up Chrome driver: {e}")
+        # Fallback to basic Chrome setup
+        try:
+            driver = webdriver.Chrome(options=options)
+            return driver
+        except Exception as e:
+            print(f"Failed to initialize Chrome driver: {e}")
+            raise
 
 def get_image_urls(driver):
     """Extracts and returns image URLs meeting a minimum size requirement."""
