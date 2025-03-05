@@ -5,12 +5,18 @@ python-dotenv>=1.0.0  # For loading environment variables
 requests>=2.31.0  # For making HTTP requests
 whitenoise>=6.6.0  # For serving static files
 
+# Database
+dj-database-url>=2.1.0
+psycopg2-binary>=2.9.9  # For PostgreSQL support
+
 # Google Gemini AI
-google-generativeai>=0.3.0
+google-generativeai==0.3.1
+websockets>=10.0,<13.0  # Specify compatible websockets version
 
 # Web scraping dependencies
 beautifulsoup4>=4.12.0
 selenium>=4.15.0
+webdriver_manager>=4.0.1  # For managing Selenium WebDriver
 
 # Markdown processing
 markdown>=3.5.0
