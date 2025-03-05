@@ -188,6 +188,7 @@ websocket-client
 websockets
 wsproto
 xformers
+gradio-client==1.3.0
 xxhash==3.5.0
 yarl==1.18.3
 zipp
