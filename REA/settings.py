@@ -8,6 +8,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
+
+# Added comment to force rebuild - templates should be in property_snap/templates/
 """
 
 from pathlib import Path
