@@ -185,7 +185,7 @@ wavedrom==2.0.3.
 wcwidth
 webdriver_manager
 websocket-client
-websockets==14.2
+websockets
 wsproto
 xformers
 xxhash==3.5.0
